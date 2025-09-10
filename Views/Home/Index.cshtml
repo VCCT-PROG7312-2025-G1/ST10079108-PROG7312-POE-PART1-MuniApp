@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    <div class="homeSection1">
+
+        <img src="~/images/logo.jpg" />
+        <div class="HPphrase">
+            <h1>Municipality</h1>
+            <p>Here to serve the citizens with all their needs</p>
+            <span class="HPbutton"><a href="#OurServices">Services Provided</a></span>
+        </div>
+            
+    </div>
+
+    
+
+    <div class="homeSection2">
+
+        <div class="serviceCard" id="OurServices">
+            <img src="~/images/community.jpg" />
+            <p>
+                Report Issues
+            </p>
+            <p>Report Issues here and we will get back to you</p>
+            <a asp-controller="Issues" asp-action="ReportIssues">Open</a>
+        </div>
+
+        <div class="serviceCard">
+            <img src="~/images/community2.jpg" />
+            <p>
+                Local Events and Announcements
+            </p>
+            <p>Remain up to date with events and announcements</p>
+            <a>Open</a>
+        </div>
+
+        <div class="serviceCard">
+            <img src="~/images/community3.jpg" />
+            <p>
+                Service Request Status
+            </p>
+            <p>Follow up on previously reported issues</p>
+            <a>Open</a>
+        </div>
+
+        
+
+    </div>
+
+</div>

@@ -1,0 +1,237 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #FFFFFF;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+}
+/*start of Home page*/
+.uIcon {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.home-head {
+    display: flex;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+
+.home-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.product-table-head {
+    font-size: 30px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 10px 10px #958d83;
+}
+
+
+    .product-table thead tr {
+        background-color: #292723;
+        color: #ffffff;
+        text-align: center;
+    }
+
+
+    .product-table thead .table-title {
+        font-size: 24px;
+        padding: 12px 0;
+    }
+
+
+    .product-table thead th {
+        padding: 12px 15px;
+    }
+
+.column-heads th {
+    text-decoration: none;
+    background-color: #48433D;
+}
+
+.product-table tbody tr {
+    border-bottom: 1.5px solid #292723;
+    background-color: #292723;
+    color: white;
+    text-decoration: none;
+}
+
+
+    .product-table tbody tr:last-of-type {
+    }
+
+
+    .product-table tbody tr:hover {
+        background-color: #48433D;
+    }
+
+.product-table tbody td:nth-child(1),
+.product-table tbody td:nth-child(2),
+.product-table tbody td:nth-child(3),
+.product-table tbody td:nth-child(4),
+.product-table tbody td:nth-child(5),
+.product-table tbody td:nth-child(6) {
+    
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*end of Home page*/
+
+/*List issue Page*/
+
+.workHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 40vh;
+    background-color: darkcyan;
+    width: 100%;
+    height: 70vh;
+    padding-left: 190px;
+    padding-right: 190px;
+}
+
+    .workHeader h1 {
+        font-size: 60px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+.workContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/*List Issue Page*/
+
+
+
+/*Record issue*/
+.backButton{
+    width:100%;
+    
+    display:flex;
+    margin: 20px;
+    text-align: left;
+}
+    .backButton a{
+        color: black;
+        text-align: left;
+    }
+    .issueForm-header {
+        width: 100%;
+        height: auto;
+        font-size: 30px;
+        text-align: center;
+    }
+.issueForm-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.issue-container {
+    padding: 16px;
+    
+    min-width: 200px;
+    max-width: 400px;
+    min-height: 170px;
+    height: 560px;
+}
+.issueForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #f1f1f1;
+    
+    
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.issueForm input, textarea{
+    width:100%;
+}
+    .issueForm p {
+        color: gray;
+    }
+
+.link {
+    color: royalblue;
+}
+
+.issue-container label {
+    font-size: 18px;
+}
+
+.issue-container input[type=text], input[type=password], select, input[type=file] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.issue-container button {
+    width: 100%;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    color:white;
+    padding: 15px;
+    background-color: #48433D;
+}
+
+    .issue-container button:hover {
+        background-color: black;
+        color: black;
+        opacity: 0.3;
+    }
+
+
+
+/*Record issue end*/

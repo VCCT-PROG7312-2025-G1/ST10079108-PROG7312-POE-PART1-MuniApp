@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MuniApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MuniApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    
+</head>
+<body>
+
+    <div class="headerSection" id="myHeaderSection">
+        <a  asp-area="" asp-controller="Home" asp-action="Index">Municipality.</a>
+        <a  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        <a  asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+  
+    <div >
+        <main role="main"  >
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+            <div class="content">
+                <div class="left box">
+                    <div class="upper">
+                        <div class="topic">About us</div>
+                        <p>The Municipality website was created to help aid the citizens.</p>
+                    </div>
+                    <div class="lower">
+                        <div class="topic">Contact us</div>
+                        <div class="phone">
+                            <a href="#"><i class="fas fa-phone-volume"></i>070 070 7070</a>
+                        </div>
+                        <div class="email">
+                            <a href="#"><i class="fas fa-envelope"></i>municipality@mail.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="middle box">
+                    <div class="topic">Our Services</div>
+                    <div><a asp-controller="Issues" asp-action="ReportIssues" style="text-decoration:none;">Report Issues</a></div>
+                    <div><a href="#">Local Events and Announcements</a></div>
+                    <div><a href="#">Service Request status</a></div>
+                </div>
+                <div class="right box">
+                    <div class="topic">Communication</div>
+                    <form action="#">
+                        <input type="text" placeholder="Enter email address">
+                        <input type="submit" name=" " value="Send">
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="bottom">
+                <p>Copyright © 2020 <a href="#">Municipality</a> All rights reserved</p>
+            </div>
+        </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/JS.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

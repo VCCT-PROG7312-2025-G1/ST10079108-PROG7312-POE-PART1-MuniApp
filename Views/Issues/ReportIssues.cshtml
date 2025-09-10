@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Report Issues";
+}
+@model MuniApp.Models.Issue
+
+<div class="backButton">
+    <a asp-controller="Home" asp-action="Index">BACK</a>
+</div>
+    <div class="issueForm-header">
+        <h1>Report Issues</h1>
+        <p>Report issues that you have noticed</p>
+    </div>
+
+<div class="issueForm-container">
+    <form asp-action="ReportIssues" method="post" enctype="multipart/form-data" class="issueForm" id="issueForm">
+        <div class="issue-container">
+
+            <h1 class="txt2">Fill in issue details</h1>
+            <p>Describe the issue as accurately as possible</p>
+
+            <input type="text" required asp-for="Location" placeholder="Location"/>
+
+            <select required asp-for="Category">
+                <option>Sanitation</option>
+                <option>Waste</option>
+                <option>Electric</option>
+                <option>Health</option>
+                <option>Security Risk</option>
+                <option>Infrastructure</option>
+                <option>Noise</option>
+                <option>Other</option>
+            </select>
+
+            <textarea asp-for="Description" id="paragraphText" placeholder="Description"></textarea>
+            
+
+            <input type="file" name="file" required />
+            <input type="text" asp-for="ImagePath" value="Default" readonly style="display:none;"/>
+            
+            <button type="submit">Submit</button>
+             
+        </div>
+
+    </form>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#paragraphText'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @section Scripts {
+        <script src="~/js/issueForm.js"></script>
+    }
+    
+</div>

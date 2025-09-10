@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "List Issues";
+}
+
+@model IEnumerable<MuniApp.Models.Issue>
+<div class="backButton">
+    <a asp-controller="Issues" asp-action="ReportIssues">BACK</a>
+</div>
+<div class="home-body" id="buy-products">
+   
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th colspan="6" class="product-table-head">Reported Issues</th>
+            </tr>
+            <tr class="column-heads">
+                <th>Id</th>
+                <th>Location</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>File Path</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var issue in Model)
+            {
+                <tr>
+                    <td>@issue.Id</td>
+                    <td>@issue.Location</td>
+                    <td>@issue.Category</td>
+                    <td>@Html.Raw(issue.Description)</td>
+                    <td>@issue.ImagePath</td>
+                    <td>
+                        <img src="@issue.ImagePath" width="50" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<a asp-controller="Issues" asp-action="ReportIssues">Report Issue</a>

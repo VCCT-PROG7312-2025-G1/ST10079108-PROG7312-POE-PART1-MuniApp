@@ -122,10 +122,35 @@ namespace MuniApp.Controllers
                 updates = updates.OrderBy(u => u.Title);
             }
 
-            
+            var recommended = new List<Update>();
+            if (recentlyViewed.Count > 0)
+            {
+               
+                var mostViewedCategory = recentlyViewed
+                    .GroupBy(u => u.Category)
+                    .OrderByDescending(g => g.Count())
+                    .Select(g => g.Key)
+                    .FirstOrDefault();
+
+                var mostViewedType = recentlyViewed
+                    .GroupBy(u => u.Type)
+                    .OrderByDescending(g => g.Count())
+                    .Select(g => g.Key)
+                    .FirstOrDefault();
+
+                recommended = updatesDict.Values
+                    .Where(u =>
+                        (mostViewedCategory != null && u.Category == mostViewedCategory) ||
+                        (mostViewedType != null && u.Type == mostViewedType))
+                    .Take(5)
+                    .ToList();
+            }
+
             ViewBag.Categories = categories;
 
             ViewBag.RecentlyViewed = recentlyViewed.Take(5).ToList();
+
+            ViewBag.Recommended = recommended;
 
             return View(updates.ToList());
         }

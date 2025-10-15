@@ -293,24 +293,33 @@ body {
             background-color: #444;
         }
 
-.history {
+.analytics {
     width: 100%;
     padding-left: 30px;
     list-style: none;
     color: black;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+    gap: 10px;
+    
 }
 
-.history a{
+.analytics a{
     color: black;
     text-decoration: none;
     list-style: none;
 
 }
-    .history a:hover {
+    .analytics a:hover {
         
         text-decoration: underline;
         
     }
+
 /*List Updates end*/
 
 

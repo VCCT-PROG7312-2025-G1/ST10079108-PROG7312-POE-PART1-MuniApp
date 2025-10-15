@@ -1,0 +1,24 @@
+﻿@model MuniApp.Models.Update
+@{
+    ViewData["Title"] = "View Update";
+}
+<div class="backButton">
+    <a asp-controller="Update" asp-action="ListUpdates">BACK</a>
+</div>
+<div class="update-container">
+    <div class="update-inner">
+        <h1 class="update-title">@Model.Title</h1>
+        <p class="update-info"><strong>Category:</strong> @Model.Category</p>
+        <p class="update-info"><strong>Type:</strong> @Model.Type</p>
+        <p class="update-info"><strong>Date Created:</strong> @Model.DateCreated.ToString("dd MMM yyyy")</p>
+
+        @if (Model.Type == "Event" && Model.EventDate != null)
+        {
+            <p class="update-info"><strong>Event Date:</strong> @Model.EventDate.Value.ToString("dd MMM yyyy")</p>
+        }
+
+        <div class="update-description">
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "List Issues";
+}
+
+@model IEnumerable<MuniApp.Models.Update>
+<div class="backButton">
+    <a asp-controller="Update" asp-action="CreateUpdate">BACK</a>
+    
+</div>
+
+<div class="home-body" id="buy-products">
+    <form method="get" asp-action="ListUpdates" class="filter-Form">
+        <div>
+            <label>Search by title, category, or type</label><br />
+            <input type="text" name="searchQuery" />
+        </div>
+
+        
+        
+        <div>
+            <label>Search by date</label><br/>
+            <input type="date" name="searchDate" />
+        </div>
+
+        <div>
+            <label>Sort by</label><br />
+            <select name="sortBy">
+                <option value="">None</option>
+                <option value="EventDate">Event Date</option>
+                <option value="CreatedDate">Created Date</option>
+                <option value="Category">Category</option>
+                <option value="Title">Title</option>
+            </select>
+        </div>
+
+        <button type="submit">Apply</button>
+    </form>
+
+    <hr />
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th colspan="8" class="product-table-head">Updates</th>
+            </tr>
+            <tr class="column-heads">
+                <th>Title</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Date Created</th>
+                <th>Event Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Type</td>
+                    <td>@item.Category</td>
+                    <td>@Html.Raw(item.Description)</td>
+                    <td>@item.DateCreated.ToShortDateString()</td>
+                    <td>@(item.EventDate?.ToShortDateString() ?? "-")</td>
+                    <td>
+                        <form asp-action="ViewUpdate" method="get">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit" class="PO-btn">View Update</button>
+                        </form>
+                    </td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

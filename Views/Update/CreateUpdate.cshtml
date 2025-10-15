@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Create Update";
+}
+@model MuniApp.Models.Update
+
+<div class="backButton">
+    <a asp-controller="Home" asp-action="Index">BACK</a><br/>
+    <a asp-controller="Update" asp-action="ListUpdates">View All Updates</a>
+</div>
+<div class="issueForm-header">
+    <h1>Create Update</h1>
+    <p>Create an anouncement or an event</p>
+</div>
+
+<div class="issueForm-container">
+    <form asp-action="CreateUpdate" method="post" class="issueForm">
+        <div class="issue-container">
+
+            <h1 class="txt2">Fill in update details</h1>
+            <p>Provide the necessary information for the update</p>
+
+            <input type="text" required asp-for="Title" placeholder="Title" />
+
+            <select required asp-for="Category">
+                <option value="General">General</option>
+                @if (ViewBag.Categories != null)
+                {
+                    foreach (var cat in ViewBag.Categories as HashSet<string>)
+                    {
+                        <option value="@cat">@cat</option>
+                    }
+                }
+            </select>
+
+            <select required asp-for="Type" id="typeSelect">
+                <option value="Announcement">Announcement</option>
+                <option value="Event">Event</option>
+            </select>
+
+            <textarea asp-for="Description" id="paraText" placeholder="Description"></textarea>
+
+            <input asp-for="EventDate" type="date" placeholder="Date" id="eventDate" style="display:none;">
+            
+            <button type="submit">Submit</button>
+
+        </div>
+
+    </form>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#paraText'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @section Scripts {
+        <script src="~/js/issueForm.js"></script>
+    }
+
+    <script>
+        const typeSelect = document.getElementById("typeSelect");
+        const eventDate = document.getElementById("eventDate");
+
+        typeSelect.addEventListener("change", function () {
+            if (typeSelect.value === "Event") {
+                eventDate.style.display = "block";
+            } else {
+                eventDate.style.display = "none";
+            }
+        });
+    </script>
+
+</div>

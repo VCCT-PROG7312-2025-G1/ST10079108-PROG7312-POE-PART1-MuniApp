@@ -112,6 +112,23 @@ body {
     justify-content: center;
 }
 
+.PO-btn {
+    background-color: #48433D;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .PO-btn:hover {
+        background-color: #292723;
+    }
 
 /*end of Home page*/
 
@@ -235,3 +252,99 @@ body {
 
 
 /*Record issue end*/
+
+
+/*List Updates start*/
+
+.filter-Form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap; 
+    width: 100%;
+    padding: 10px;
+    gap: 10px; 
+}
+
+
+    .filter-Form input[type=text],
+    .filter-Form input[type=password],
+    .filter-Form select,
+    .filter-Form input[type=date] {
+        width: 200px; 
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+ 
+    .filter-Form button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #292723;
+        color: white;
+        cursor: pointer;
+        height: auto; 
+    }
+
+        .filter-Form button:hover {
+            background-color: #444;
+        }
+
+/*List Updates end*/
+
+
+/*View Update start*/
+.update-container {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.update-inner {
+    background-color: #48433D;
+    color: white;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    border: 2px solid #292723;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.update-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.update-info {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+
+.update-description {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 600px) {
+    .update-inner {
+        padding: 15px;
+    }
+
+    .update-title {
+        font-size: 1.5rem;
+    }
+
+    .update-info {
+        font-size: 0.9rem;
+    }
+}
+/*View Update end*/

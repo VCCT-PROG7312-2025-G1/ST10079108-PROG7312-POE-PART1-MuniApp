@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "List Issues";
+    var history = ViewBag.RecentlyViewed as List<MuniApp.Models.Update>;
 }
 
 @model IEnumerable<MuniApp.Models.Update>
@@ -35,7 +36,22 @@
 
         <button type="submit">Apply</button>
     </form>
-
+    @if (history != null && history.Count > 0)
+    {
+        <div class="history">
+            <p>recently viewed</p>
+            <ul>
+                @foreach (var item in history)
+                {
+                    <li>
+                        <a asp-action="ViewUpdate" asp-route-id="@item.Id">
+                            @item.Title (@item.Type)
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
     <hr />
     <table class="product-table">
         <thead>

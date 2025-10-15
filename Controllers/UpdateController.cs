@@ -125,6 +125,8 @@ namespace MuniApp.Controllers
             
             ViewBag.Categories = categories;
 
+            ViewBag.RecentlyViewed = recentlyViewed.Take(5).ToList();
+
             return View(updates.ToList());
         }
     }

@@ -293,6 +293,24 @@ body {
             background-color: #444;
         }
 
+.history {
+    width: 100%;
+    padding-left: 30px;
+    list-style: none;
+    color: black;
+}
+
+.history a{
+    color: black;
+    text-decoration: none;
+    list-style: none;
+
+}
+    .history a:hover {
+        
+        text-decoration: underline;
+        
+    }
 /*List Updates end*/
 
 

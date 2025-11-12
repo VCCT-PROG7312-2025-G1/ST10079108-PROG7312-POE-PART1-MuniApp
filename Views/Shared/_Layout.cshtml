@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/newStyles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MuniApp.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -54,7 +55,7 @@
                     <div class="topic">Our Services</div>
                     <div><a asp-controller="Issues" asp-action="ReportIssues" style="text-decoration:none;">Report Issues</a></div>
                 <div><a asp-controller="Update" asp-action="CreateUpdate" style="text-decoration:none;">Local Events and Announcements</a></div>
-                    <div><a href="#">Service Request status</a></div>
+                <div><a asp-controller="Update" asp-action="CreateUpdate" style="text-decoration:none;">Service Request Status</a></div>
                 </div>
                 <div class="right box">
                     <div class="topic">Communication</div>

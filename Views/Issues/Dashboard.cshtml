@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Service Request Status";
+    var categoryCounts = ViewBag.CategoryCounts as Dictionary<string, int>;
+    var topIssues = ViewBag.TopIssues as List<MuniApp.Models.Issue>;
+}
+@model List<MuniApp.Models.Issue>
+<div class="backButton">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">← Back</a>
+</div>
+<div class="dashboard-container">
+    <h1>Service Request Status</h1>
+    
+    <form method="get" asp-action="Dashboard" class="search-Form">
+        <input type="text" name="searchQuery" value="@ViewBag.SearchQuery" placeholder="Enter ID, Category, or Location" />
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="issue-list">
+        
+        @if (Model.Any())
+        {
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="product-table-head">Reported Issues</th>
+                    </tr>
+                    <tr class="column-heads">
+                        <th>ID</th>
+                        <th>Category</th>
+                        <th>Location</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var issue in Model)
+                    {
+                        <tr>
+                            <td>@issue.Id</td>
+                            <td>@issue.Category</td>
+                            <td>@issue.Location</td>
+                            <td>@issue.Priority</td>
+                            <td>@issue.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No issues found.</p>
+        }
+    </div>
+  
+    <div class="home-body">
+
+
+        @if (topIssues != null && topIssues.Any())
+        {
+            <hr />
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th colspan="5" class="product-table-head">High Priority Issues</th>
+                    </tr>
+                    <tr class="column-heads">
+                        <th>Category</th>
+                        <th>Location</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var issue in topIssues)
+                    {
+                        <tr>
+                            <td>@issue.Category</td>
+                            <td>@issue.Location</td>
+                            <td>
+                                @{
+                                    var priorityText = issue.Priority switch
+                                    {
+                                        1 => "Low",
+                                        2 => "Medium",
+                                        3 => "High",
+                                        _ => "Unknown"
+                                    };
+                                }
+                                @priorityText
+                            </td>
+                            <td>@issue.Status</td>
+                            <td>@Html.Raw(issue.Description)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            
+        }
+        else
+        {
+            <p>No high-priority issues found.</p>
+        }
+    </div>
+  
+    <hr />
+
+    <div class="chart-section">
+        <h2>Issues by Category</h2>
+        <canvas id="issuesChart"></canvas>
+
+
+        <input type="hidden" id="categoryData" value='@Html.Raw(System.Text.Json.JsonSerializer.Serialize(categoryCounts))' />
+    </div>
+
+    <hr />
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/site.js"></script>
+}
+

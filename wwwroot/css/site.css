@@ -375,3 +375,40 @@ body {
     }
 }
 /*View Update end*/
+
+/*Dashboard start*/
+
+.search-Form {
+    
+    padding: 10px;
+    
+}
+
+
+    .search-Form input[type=text],
+    .search-Form input[type=password],
+    .search-Form select,
+    .search-Form input[type=date] {
+        width: 200px;
+        padding: 10px 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+
+    .search-Form button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #292723;
+        color: white;
+        cursor: pointer;
+        height: auto;
+    }
+
+        .search-Form button:hover {
+            background-color: #444;
+        }
+
+/*Dashboard end*/
